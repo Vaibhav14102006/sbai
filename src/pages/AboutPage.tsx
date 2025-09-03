@@ -28,12 +28,6 @@ const AboutPage: React.FC = () => {
     { icon: Globe, title: 'Accessibility', description: 'Multi-language support for inclusive education' }
   ];
 
-  const team = [
-    { name: 'Dr. Rajesh Kumar', role: 'Founder & CEO', expertise: 'Financial Markets, 15+ years', image: '/team/rajesh.jpg' },
-    { name: 'Priya Sharma', role: 'Head of Education', expertise: 'Curriculum Design, SEBI Expert', image: '/team/priya.jpg' },
-    { name: 'Amit Patel', role: 'CTO', expertise: 'Fintech, AI/ML', image: '/team/amit.jpg' },
-    { name: 'Sneha Gupta', role: 'Head of Community', expertise: 'User Experience, Community Building', image: '/team/sneha.jpg' }
-  ];
 
   return (
     <div className="min-h-screen bg-black pt-20">
@@ -164,45 +158,6 @@ const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-20 px-4 bg-gray-900/30">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold text-white mb-6">Meet Our Team</h2>
-            <p className="text-xl text-gray-400">Experts dedicated to your financial education success</p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -10, rotateY: 5 }}
-                className="group text-center"
-              >
-                <div className="relative mb-6 perspective-1000">
-                  <div className="w-32 h-32 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full mx-auto flex items-center justify-center text-white text-2xl font-bold group-hover:shadow-2xl transition-all duration-300">
-                    {member.name.split(' ').map(n => n[0]).join('')}
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-                </div>
-                <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-blue-300 transition-colors">{member.name}</h3>
-                <div className="text-blue-400 font-medium mb-2">{member.role}</div>
-                <p className="text-gray-400 text-sm">{member.expertise}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* SEBI Compliance */}
       <section className="py-20 px-4">

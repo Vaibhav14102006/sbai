@@ -28,26 +28,6 @@ const About: React.FC = () => {
     }
   ];
 
-  const team = [
-    {
-      name: 'Sarah Johnson',
-      role: 'CEO & Founder',
-      background: 'Former Goldman Sachs VP with 15 years in investment banking',
-      avatar: 'SJ'
-    },
-    {
-      name: 'Michael Chen',
-      role: 'CTO',
-      background: 'Ex-Google engineer specializing in fintech and educational platforms',
-      avatar: 'MC'
-    },
-    {
-      name: 'Emma Rodriguez',
-      role: 'Head of Education',
-      background: 'PhD in Finance, former professor at Wharton Business School',
-      avatar: 'ER'
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black p-6">
@@ -151,33 +131,6 @@ const About: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Team */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-          className="mb-16"
-        >
-          <h2 className="text-3xl font-bold text-white mb-8 text-center">Leadership Team</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {team.map((member, index) => (
-              <motion.div
-                key={member.name}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.9 + index * 0.1 }}
-                className="bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl p-6 text-center"
-              >
-                <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
-                  {member.avatar}
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">{member.name}</h3>
-                <div className="text-blue-400 font-medium mb-3">{member.role}</div>
-                <p className="text-gray-400 text-sm leading-relaxed">{member.background}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
 
         {/* Call to Action */}
         <motion.div
