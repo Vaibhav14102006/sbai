@@ -11,7 +11,7 @@ const TermsPage: React.FC = () => {
       title: 'Acceptance of Terms',
       icon: CheckCircle,
       content: [
-        'By accessing and using InvestEd platform, you accept and agree to be bound by these Terms and Conditions',
+        'By accessing and using Finnect platform, you accept and agree to be bound by these Terms and Conditions',
         'If you do not agree to these terms, please do not use our services',
         'These terms apply to all users, including visitors, registered users, and premium subscribers',
         'Your continued use of the platform constitutes acceptance of any updates to these terms'
@@ -22,7 +22,7 @@ const TermsPage: React.FC = () => {
       title: 'Description of Services',
       icon: FileText,
       content: [
-        'InvestEd provides educational content and tools for learning about financial markets and investing',
+        'Finnect provides educational content and tools for learning about financial markets and investing',
         'Our platform includes interactive modules, quizzes, trading simulations, and community features',
         'All educational content is for informational purposes only and does not constitute financial advice',
         'Trading simulations use virtual money and do not involve real financial transactions',
@@ -59,7 +59,7 @@ const TermsPage: React.FC = () => {
       title: 'Intellectual Property Rights',
       icon: Shield,
       content: [
-        'All content on the platform, including text, graphics, logos, and software, is owned by InvestEd',
+        'All content on the platform, including text, graphics, logos, and software, is owned by Finnect',
         'You may not reproduce, distribute, or create derivative works without our written permission',
         'User-generated content remains your property, but you grant us a license to use it',
         'We respect intellectual property rights and will respond to valid DMCA notices',
@@ -95,7 +95,7 @@ const TermsPage: React.FC = () => {
               Terms & Conditions
             </h1>
             <p className="text-xl text-gray-300 mb-8">
-              Please read these terms carefully before using our platform. They govern your use of InvestEd services.
+              Please read these terms carefully before using our platform. They govern your use of Finnect services.
             </p>
             <div className="text-sm text-gray-400">
               <p>Last updated: January 1, 2024</p>

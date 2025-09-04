@@ -245,7 +245,7 @@ const SettingsPage: React.FC = () => {
             </div>
             <div>
               <h1 className="text-3xl font-bold text-white">Settings</h1>
-              <p className="text-gray-400">Customize your InvestEd experience</p>
+              <p className="text-gray-400">Customize your Finnect experience</p>
             </div>
           </div>
         </motion.div>

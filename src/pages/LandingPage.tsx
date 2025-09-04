@@ -22,21 +22,13 @@ const LandingPage: React.FC = () => {
       } else {
         clearInterval(timer);
       }
-    }, 80);
+    }, 100);
     return () => clearInterval(timer);
   }, [fullText]);
 
   useEffect(() => {
     if (!animationUtils.respectsReducedMotion()) {
-      // Hero headline animation
-      if (headlineRef.current) {
-        setTimeout(() => {
-          textReveal.letterByLetter(headlineRef.current!, 0.5);
-          textReveal.holographicSheen(headlineRef.current!);
-        }, 1000);
-      }
-
-      // Counter animations
+      // Counter animations only
       if (countersRef.current) {
         const counters = countersRef.current.querySelectorAll('.counter');
         scrollAnimations.staggeredCards(counters);
@@ -145,9 +137,9 @@ const LandingPage: React.FC = () => {
 
             <h1 
               ref={headlineRef}
-              className="text-6xl md:text-8xl font-bold mb-6 text-white leading-tight min-h-[200px] flex items-center justify-center"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 text-white leading-tight min-h-[200px] flex items-center justify-center text-center px-4 w-full max-w-6xl mx-auto"
             >
-              <span className="typewriter-text">
+              <span className="typewriter-text w-full text-center break-words hyphens-auto">
                 {typewriterText}
                 <span className="animate-pulse text-cyan-400">|</span>
               </span>
@@ -381,7 +373,7 @@ const LandingPage: React.FC = () => {
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-4 gap-8">
               <div>
-                <h3 className="text-lg font-semibold mb-4 text-white">InvestEd</h3>
+                <h3 className="text-lg font-semibold mb-4 text-white">Finnect</h3>
                 <p className="text-gray-400 text-sm">
                   Empowering investors through education and simulation
                 </p>
@@ -412,7 +404,7 @@ const LandingPage: React.FC = () => {
               </div>
             </div>
             <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400 text-sm">
-              © 2024 InvestEd. All rights reserved. | SEBI Compliant Educational Platform
+              © 2024 Finnect. All rights reserved. | SEBI Compliant Educational Platform
             </div>
           </div>
         </footer>

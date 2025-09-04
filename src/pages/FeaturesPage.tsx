@@ -214,7 +214,7 @@ const FeaturesPage: React.FC = () => {
                 <thead>
                   <tr className="border-b border-gray-700">
                     <th className="text-left p-6 text-white font-semibold">Features</th>
-                    <th className="text-center p-6 text-blue-400 font-semibold">InvestEd</th>
+                    <th className="text-center p-6 text-blue-400 font-semibold">Finnect</th>
                     <th className="text-center p-6 text-gray-400 font-semibold">Competitor A</th>
                     <th className="text-center p-6 text-gray-400 font-semibold">Competitor B</th>
                   </tr>

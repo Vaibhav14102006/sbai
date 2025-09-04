@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { 
   Search, 
-  User, 
   Globe, 
   Menu, 
   X,
@@ -79,7 +78,7 @@ const GlassNavbar: React.FC = () => {
               </motion.div>
               <div className="hidden sm:block">
                 <h1 className="text-xl font-bold bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">
-                  InvestEd
+                  Finnect
                 </h1>
                 <p className="text-xs text-neutral-600 dark:text-neutral-400">
                   Learn. Trade. Grow.

@@ -8,12 +8,12 @@ import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAfNMfMLVlBXBM-x3pLLQuIjt-9NeCgjX4",
-  authDomain: "amiquiz-1d46b.firebaseapp.com",
-  projectId: "amiquiz-1d46b",
-  storageBucket: "amiquiz-1d46b.firebasestorage.app",
-  messagingSenderId: "870862298839",
-  appId: "1:870862298839:web:139f41f53519a0cfd8da92"
+  apiKey: "AIzaSyBayTAMuS8N-edF9yoI9G0RoChp3bNjzlI",
+  authDomain: "goodsinminutes.firebaseapp.com",
+  projectId: "goodsinminutes",
+  storageBucket: "goodsinminutes.firebasestorage.app",
+  messagingSenderId: "701827935261",
+  appId: "1:701827935261:web:da6a4a52514065661daaf4"
 };
 
 // Initialize Firebase
