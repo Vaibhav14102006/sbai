@@ -69,7 +69,7 @@ export const useStore = create<AppStore>()(
       },
     }),
     {
-      name: 'invest-ed-storage',
+  name: "InvestEd: India's Multilingual Stock Market Learning Platform Storage",
       partialize: (state) => ({
         user: state.user,
         isAuthenticated: state.isAuthenticated,

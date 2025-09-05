@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { TrendingUp, TrendingDown, DollarSign, BarChart3, PieChart, Activity, Eye, Plus, Minus } from 'lucide-react';
+import { TrendingUp, TrendingDown, DollarSign, BarChart3, PieChart, Activity, Eye } from 'lucide-react';
 
 interface Stock {
   symbol: string;
@@ -21,7 +21,7 @@ const TradingPlatform: React.FC = () => {
   });
 
   const stocks: Stock[] = [
-    { symbol: 'RELIANCE', name: 'Reliance Industries', price: 2456.75, change: 45.20, changePercent: 1.87, volume: '2.5M' },
+  { symbol: 'RELIANCE', name: "Reliance Industries (InvestEd: India's Multilingual Stock Market Learning Platform)", price: 2456.75, change: 45.20, changePercent: 1.87, volume: '2.5M' },
     { symbol: 'TCS', name: 'Tata Consultancy Services', price: 3678.90, change: -23.45, changePercent: -0.63, volume: '1.8M' },
     { symbol: 'INFY', name: 'Infosys Limited', price: 1534.25, change: 18.75, changePercent: 1.24, volume: '3.2M' },
     { symbol: 'HDFCBANK', name: 'HDFC Bank Limited', price: 1687.50, change: -12.30, changePercent: -0.72, volume: '4.1M' },
