@@ -1,7 +1,6 @@
-import React, { useEffect, Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { useEffect, Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useStore } from './store/useStore';
-import { useAuth } from './hooks/useAuth';
 import GlassNavbar from './components/ui/GlassNavbar';
 import LoadingSpinner from './components/ui/LoadingSpinner';
 import './styles/glass-effects.css';
@@ -20,7 +19,7 @@ const TermsPage = lazy(() => import('./pages/TermsPage'));
 // Auth pages
 const AuthFlow = lazy(() => import('./components/auth/AuthFlow'));
 const OnboardingPage = lazy(() => import('./pages/auth/OnboardingPage'));
-const PasswordResetPage = lazy(() => import('./pages/auth/PasswordResetPage'));
+const PasswordResetPage = lazy(() => import('./pages/auth/PasswordResetPage').then(module => ({ default: module.default })));
 
 // Dashboard & Profile
 const Dashboard = lazy(() => import('./pages/dashboard/Dashboard'));
@@ -75,10 +74,7 @@ const NotificationManager = lazy(() => import('./pages/admin/NotificationManager
 
 function App() {
   const { setTheme } = useStore();
-  const { isAuthenticated, user } = useAuth();
-
   useEffect(() => {
-    // Initialize theme
     setTheme({
       mode: 'dark',
       primaryColor: '#3b82f6',
@@ -86,21 +82,13 @@ function App() {
     });
   }, [setTheme]);
 
-  const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
-    return isAuthenticated ? <>{children}</> : <Navigate to="/auth" />;
-  };
-
-  const AdminRoute = ({ children }: { children: React.ReactNode }) => {
-    return isAuthenticated && user?.role === 'admin' ? <>{children}</> : <Navigate to="/dashboard" />;
-  };
-
   return (
     <Router>
       <div className="min-h-screen bg-black text-white">
         <GlassNavbar />
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>
-            {/* Public Pages */}
+            {/* All routes are now public */}
             <Route path="/" element={<LandingPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/how-it-works" element={<HowItWorksPage />} />
@@ -118,56 +106,56 @@ function App() {
             <Route path="/onboarding" element={<OnboardingPage />} />
             <Route path="/password-reset" element={<PasswordResetPage />} />
 
-            {/* Protected Dashboard & Profile */}
-            <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-            <Route path="/profile" element={<ProtectedRoute><UserProfile /></ProtectedRoute>} />
-            <Route path="/settings" element={<ProtectedRoute><SettingsPage /></ProtectedRoute>} />
-            <Route path="/achievements" element={<ProtectedRoute><AchievementsPage /></ProtectedRoute>} />
-            <Route path="/notifications" element={<ProtectedRoute><NotificationsPage /></ProtectedRoute>} />
+            {/* Dashboard & Profile */}
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/profile" element={<UserProfile />} />
+            <Route path="/settings" element={<SettingsPage />} />
+            <Route path="/achievements" element={<AchievementsPage />} />
+            <Route path="/notifications" element={<NotificationsPage />} />
 
             {/* Learning Modules */}
-            <Route path="/modules" element={<ProtectedRoute><ModulesIndex /></ProtectedRoute>} />
-            <Route path="/modules/stock-basics" element={<ProtectedRoute><StockBasics /></ProtectedRoute>} />
-            <Route path="/modules/risk-assessment" element={<ProtectedRoute><RiskAssessment /></ProtectedRoute>} />
-            <Route path="/modules/algo-trading" element={<ProtectedRoute><AlgoTrading /></ProtectedRoute>} />
-            <Route path="/modules/portfolio-diversification" element={<ProtectedRoute><PortfolioDiversification /></ProtectedRoute>} />
-            <Route path="/modules/case-studies" element={<ProtectedRoute><CaseStudies /></ProtectedRoute>} />
-            <Route path="/modules/advanced-concepts" element={<ProtectedRoute><AdvancedConcepts /></ProtectedRoute>} />
-            <Route path="/modules/glossary" element={<ProtectedRoute><Glossary /></ProtectedRoute>} />
+            <Route path="/modules" element={<ModulesIndex />} />
+            <Route path="/modules/stock-basics" element={<StockBasics />} />
+            <Route path="/modules/risk-assessment" element={<RiskAssessment />} />
+            <Route path="/modules/algo-trading" element={<AlgoTrading />} />
+            <Route path="/modules/portfolio-diversification" element={<PortfolioDiversification />} />
+            <Route path="/modules/case-studies" element={<CaseStudies />} />
+            <Route path="/modules/advanced-concepts" element={<AdvancedConcepts />} />
+            <Route path="/modules/glossary" element={<Glossary />} />
 
             {/* Quizzes */}
-            <Route path="/quizzes" element={<ProtectedRoute><QuizzesIndex /></ProtectedRoute>} />
-            <Route path="/quizzes/:id" element={<ProtectedRoute><QuizAttempt /></ProtectedRoute>} />
-            <Route path="/quizzes/:id/results" element={<ProtectedRoute><QuizResults /></ProtectedRoute>} />
-            <Route path="/leaderboard" element={<ProtectedRoute><Leaderboard /></ProtectedRoute>} />
+            <Route path="/quizzes" element={<QuizzesIndex />} />
+            <Route path="/quizzes/:id" element={<QuizAttempt />} />
+            <Route path="/quizzes/:id/results" element={<QuizResults />} />
+            <Route path="/leaderboard" element={<Leaderboard />} />
 
             {/* Trading Simulator */}
-            <Route path="/simulator" element={<ProtectedRoute><MarketOverview /></ProtectedRoute>} />
-            <Route path="/simulator/trade" element={<ProtectedRoute><TradingExecution /></ProtectedRoute>} />
-            <Route path="/simulator/portfolio" element={<ProtectedRoute><Portfolio /></ProtectedRoute>} />
-            <Route path="/simulator/history" element={<ProtectedRoute><TransactionHistory /></ProtectedRoute>} />
-            <Route path="/simulator/risk" element={<ProtectedRoute><RiskSimulation /></ProtectedRoute>} />
+            <Route path="/simulator" element={<MarketOverview />} />
+            <Route path="/simulator/trade" element={<TradingExecution />} />
+            <Route path="/simulator/portfolio" element={<Portfolio />} />
+            <Route path="/simulator/history" element={<TransactionHistory />} />
+            <Route path="/simulator/risk" element={<RiskSimulation />} />
 
             {/* Resources */}
-            <Route path="/resources" element={<ProtectedRoute><ResourcesHub /></ProtectedRoute>} />
-            <Route path="/resources/documents" element={<ProtectedRoute><DocumentLibrary /></ProtectedRoute>} />
-            <Route path="/resources/news" element={<ProtectedRoute><NewsUpdates /></ProtectedRoute>} />
-            <Route path="/resources/videos" element={<ProtectedRoute><VideoTutorials /></ProtectedRoute>} />
-            <Route path="/resources/ai-summarizer" element={<ProtectedRoute><AISummarizer /></ProtectedRoute>} />
+            <Route path="/resources" element={<ResourcesHub />} />
+            <Route path="/resources/documents" element={<DocumentLibrary />} />
+            <Route path="/resources/news" element={<NewsUpdates />} />
+            <Route path="/resources/videos" element={<VideoTutorials />} />
+            <Route path="/resources/ai-summarizer" element={<AISummarizer />} />
 
             {/* Community */}
-            <Route path="/community" element={<ProtectedRoute><CommunityForum /></ProtectedRoute>} />
-            <Route path="/community/topic/:id" element={<ProtectedRoute><ForumTopic /></ProtectedRoute>} />
-            <Route path="/community/ask-expert" element={<ProtectedRoute><AskExpert /></ProtectedRoute>} />
-            <Route path="/community/events" element={<ProtectedRoute><EventsWebinars /></ProtectedRoute>} />
+            <Route path="/community" element={<CommunityForum />} />
+            <Route path="/community/topic/:id" element={<ForumTopic />} />
+            <Route path="/community/ask-expert" element={<AskExpert />} />
+            <Route path="/community/events" element={<EventsWebinars />} />
 
             {/* Admin Panel */}
-            <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
-            <Route path="/admin/content" element={<AdminRoute><ContentManagement /></AdminRoute>} />
-            <Route path="/admin/quizzes" element={<AdminRoute><QuizManagement /></AdminRoute>} />
-            <Route path="/admin/market-data" element={<AdminRoute><MarketDataFeed /></AdminRoute>} />
-            <Route path="/admin/analytics" element={<AdminRoute><UserAnalytics /></AdminRoute>} />
-            <Route path="/admin/notifications" element={<AdminRoute><NotificationManager /></AdminRoute>} />
+            <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/admin/content" element={<ContentManagement />} />
+            <Route path="/admin/quizzes" element={<QuizManagement />} />
+            <Route path="/admin/market-data" element={<MarketDataFeed />} />
+            <Route path="/admin/analytics" element={<UserAnalytics />} />
+            <Route path="/admin/notifications" element={<NotificationManager />} />
           </Routes>
         </Suspense>
       </div>
