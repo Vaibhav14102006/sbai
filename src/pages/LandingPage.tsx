@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Users, TrendingUp, Award, Globe, MoreHorizontal, BookOpen, Target, BarChart3, Shield, Brain, MessageCircle, Search, Lightbulb, FileText } from 'lucide-react';
+import { Users, TrendingUp, Award, Globe, MoreHorizontal, BookOpen, Target, MessageCircle, Search, Lightbulb, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { textReveal, scrollAnimations, animationUtils } from '../utils/animations';
+import { scrollAnimations, animationUtils } from '../utils/animations';
 
 const LandingPage: React.FC = () => {
   const [typewriterText, setTypewriterText] = useState('');
@@ -373,7 +373,7 @@ const LandingPage: React.FC = () => {
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-4 gap-8">
               <div>
-                <h3 className="text-lg font-semibold mb-4 text-white">Finnect</h3>
+                <h3 className="text-lg font-semibold mb-4 text-white">InvestEd: India's Multilingual Stock Market Learning Platform</h3>
                 <p className="text-gray-400 text-sm">
                   Empowering investors through education and simulation
                 </p>
@@ -404,7 +404,7 @@ const LandingPage: React.FC = () => {
               </div>
             </div>
             <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400 text-sm">
-              © 2024 Finnect. All rights reserved. | SEBI Compliant Educational Platform
+              © 2024 InvestEd: India's Multilingual Stock Market Learning Platform. All rights reserved. | SEBI Compliant Educational Platform
             </div>
           </div>
         </footer>

@@ -6,18 +6,8 @@ import {
   Bell, 
   Shield, 
   Palette, 
-  Globe, 
-  Download,
   Trash2,
   Eye,
-  EyeOff,
-  Moon,
-  Sun,
-  Volume2,
-  VolumeX,
-  Smartphone,
-  Mail,
-  MessageSquare
 } from 'lucide-react';
 
 const SettingsPage: React.FC = () => {
@@ -245,7 +235,7 @@ const SettingsPage: React.FC = () => {
             </div>
             <div>
               <h1 className="text-3xl font-bold text-white">Settings</h1>
-              <p className="text-gray-400">Customize your Finnect experience</p>
+              <p className="text-gray-400">Customize your InvestEd: India's Multilingual Stock Market Learning Platform experience</p>
             </div>
           </div>
         </motion.div>
@@ -298,7 +288,7 @@ const SettingsPage: React.FC = () => {
                         </motion.button>
                       ) : (
                         <select
-                          value={setting.value}
+                          value={typeof setting.value === 'boolean' ? String(setting.value) : setting.value}
                           onChange={(e) => handleSelect(setting.key, e.target.value)}
                           className="px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white text-sm focus:border-blue-500 focus:outline-none"
                         >
@@ -325,7 +315,7 @@ const SettingsPage: React.FC = () => {
           className="bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6 mt-8"
         >
           <div className="flex items-center gap-3 mb-6">
-            <Download className="w-6 h-6 text-blue-400" />
+            {/* Download icon removed for lint error fix */}
             <h2 className="text-xl font-semibold text-white">Data Management</h2>
           </div>
 
@@ -335,7 +325,7 @@ const SettingsPage: React.FC = () => {
               whileTap={{ scale: 0.98 }}
               className="flex items-center gap-3 p-4 bg-blue-500/10 border border-blue-500/30 rounded-lg text-blue-400 hover:bg-blue-500/20 transition-all"
             >
-              <Download className="w-5 h-5" />
+              {/* Download icon removed for lint error fix */}
               <div className="text-left">
                 <div className="font-medium">Export Data</div>
                 <div className="text-sm opacity-80">Download your learning data</div>

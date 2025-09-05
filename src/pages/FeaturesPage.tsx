@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Brain, Shield, TrendingUp, Users, Globe, Zap, Award, Target, Play, BarChart3 } from 'lucide-react';
 
 const FeaturesPage: React.FC = () => {
-  const demoRef = useRef<HTMLDivElement>(null);
+  // ...existing code...
 
   const features = [
     {
@@ -214,7 +214,7 @@ const FeaturesPage: React.FC = () => {
                 <thead>
                   <tr className="border-b border-gray-700">
                     <th className="text-left p-6 text-white font-semibold">Features</th>
-                    <th className="text-center p-6 text-blue-400 font-semibold">Finnect</th>
+                    <th className="text-center p-6 text-blue-400 font-semibold">InvestEd: India's Multilingual Stock Market Learning Platform</th>
                     <th className="text-center p-6 text-gray-400 font-semibold">Competitor A</th>
                     <th className="text-center p-6 text-gray-400 font-semibold">Competitor B</th>
                   </tr>
